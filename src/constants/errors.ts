@@ -1,0 +1,21 @@
+export const ErrorsTexts = {
+  API_KEY_MISSING: "API key is missing or invalid.",
+  TIMEOUT: "The request timed out. Please try again.",
+  GENERIC: "An error occurred while fetching the weather data.",
+  CITY_SEARCH_FAILED: "Failed to search for cities. Please try again.",
+  NO_RESPONSE: "No response from Weather API.",
+  UNKNOWN_ERROR: "An unknown error occurred.",
+  LOCATION_DENIED: "Location access was denied.",
+  LOCATION_UNAVAILABLE: "Location information is unavailable.",
+  LOCATION_TIMEOUT: "The request to get user location timed out.",
+  LOCATION_UNKNOWN_ERROR: "An unknown geolocation error occurred.",
+  LOCATION_NOT_SUPPORTED: "Geolocation is not supported by your browser.",
+  HISTORY_LOAD_FAILED: "Failed to load search history.",
+  HISTORY_ADD_FAILED: "Failed to add item to history.",
+  HISTORY_REMOVE_FAILED: "Failed to remove item from history.",
+  HISTORY_UNDO_FAILED: "Failed to undo removal.",
+  HISTORY_CLEAR_FAILED: "Failed to clear history.",
+  CITY_NOT_FOUND: (city: string) => `City "${city}" not found.`,
+  API_ERROR: (status: number, message?: string) =>
+    `Weather API Error ${status}: ${message || "Unknown API error"}`,
+} as const;
