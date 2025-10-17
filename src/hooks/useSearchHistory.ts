@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { historyService } from "@services/historyService";
+import { historyService } from "@services/HistoryService";
 import { ErrorsTexts } from "@constants/errors";
 
 import type { Coordinates, HistoryItem } from "@/types";

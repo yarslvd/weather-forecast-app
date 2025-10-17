@@ -55,7 +55,7 @@ export const SearchHistory = ({
       </header>
 
       {history.length === 0 ? (
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center min-h-20">
           <span className="text-sm text-stone-300 text-center px-2">
             Start searching for cities to see them here
           </span>

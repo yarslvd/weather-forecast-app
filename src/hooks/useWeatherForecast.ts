@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { weatherForecastService } from "@services/weatherForecastService";
+import { weatherForecastService } from "@/services/WeatherForecastService";
 import { getCurrentLocation } from "@lib/utils";
 import { ErrorsTexts } from "@constants/errors";
 import { config } from "@/config";

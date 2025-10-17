@@ -93,12 +93,23 @@ export const WeatherInfo = ({
         {isLoading ? (
           <div className="w-42 h-42" />
         ) : weatherForecast ? (
-          <img
-            src={getWeatherIconUrl(weatherForecast.icon)}
-            alt={weatherForecast.description}
-            className="w-42 h-42"
-            fetchPriority="high"
-          />
+          <>
+            <link
+              rel="preload"
+              as="image"
+              fetchPriority="high"
+              href={getWeatherIconUrl(weatherForecast.icon)}
+            />
+            <img
+              rel="preload"
+              src={getWeatherIconUrl(weatherForecast.icon)}
+              alt={weatherForecast.description}
+              className="w-42 h-42"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </>
         ) : null}
       </div>
 

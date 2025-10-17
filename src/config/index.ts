@@ -45,6 +45,9 @@ export const config = {
    */
   weatherRefetchInterval: 60000,
 
-  backgroundImage:
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+  /**
+   * Background image for the app.
+   * You can set a local image (e.g., "./bg.jpg") or use a remote URL.
+   */
+  backgroundImage: "./bg.jpg",
 };

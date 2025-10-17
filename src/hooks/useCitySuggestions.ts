@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { toast } from "sonner";
-import { weatherForecastService } from "@services/weatherForecastService";
+import { weatherForecastService } from "@/services/WeatherForecastService";
 import { ErrorsTexts } from "@constants/errors";
 
 import type { Suggestion } from "@/types";
