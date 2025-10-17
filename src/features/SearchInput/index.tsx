@@ -15,12 +15,12 @@ type SearchInputProps = {
     city: string,
     country: string,
     coords: Coordinates,
-    state?: string
+    state?: string,
   ) => void;
   fetchForecastByCity: (query: string) => Promise<WeatherForecast | undefined>;
   fetchForecastByCoords: (
     lat: number,
-    lon: number
+    lon: number,
   ) => Promise<WeatherForecast | undefined>;
   fetchCurrentLocationForecast: () => Promise<void>;
 };
@@ -59,7 +59,7 @@ export const SearchInput = ({
   const handleSearchByCoords = async (
     lat: number,
     lon: number,
-    state?: string
+    state?: string,
   ) => {
     if (!lat || !lon) return;
 

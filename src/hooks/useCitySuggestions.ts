@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { toast } from "sonner";
-import { weatherForecastService } from "@/services/WeatherForecastService";
+import { weatherForecastService } from "@services/weatherForecastService";
 import { ErrorsTexts } from "@constants/errors";
 
 import type { Suggestion } from "@/types";
@@ -41,7 +41,7 @@ export const useCitySuggestions = (delay = 400) => {
         }
       }, delay);
     },
-    [delay]
+    [delay],
   );
 
   const clearSuggestions = useCallback(() => {

@@ -32,7 +32,7 @@ class HistoryService {
       const removed: HistoryItem[] = saved ? JSON.parse(saved) : [];
       sessionStorage.setItem(
         this.sessionKey,
-        JSON.stringify([item, ...removed])
+        JSON.stringify([item, ...removed]),
       );
     } catch (err) {
       console.error("Failed to save removed item:", err);
@@ -57,7 +57,7 @@ class HistoryService {
     city: string,
     country: string,
     coords: Coordinates,
-    state?: string
+    state?: string,
   ): HistoryItem[] {
     const trimmed = city.trim();
     if (!trimmed) return this.getAll();

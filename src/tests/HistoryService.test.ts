@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { historyService } from "@/services/HistoryService";
+import { historyService } from "@/services/historyService";
+import type { HistoryItem } from "@/types";
 
 vi.mock("@lib/utils", () => ({
   isSameCoords: vi.fn((a, b) => a.lat === b.lat && a.lon === b.lon),
@@ -31,7 +32,7 @@ describe("SearchHistoryService", () => {
       });
 
       const stored = JSON.parse(
-        localStorage.getItem(historyService["storageKey"])!
+        localStorage.getItem(historyService["storageKey"])!,
       );
       expect(stored).toHaveLength(1);
     });
@@ -60,7 +61,7 @@ describe("SearchHistoryService", () => {
 
       historyService.add("City1", "C1", coords1);
       historyService.add("City2", "C2", coords2);
-      const result = historyService.add("City3", "C3", coords3);
+      const result: HistoryItem[] = historyService.add("City3", "C3", coords3);
 
       expect(result).toHaveLength(2);
       expect(result.map((i) => i.city)).toEqual(["City3", "City2"]);
@@ -76,7 +77,7 @@ describe("SearchHistoryService", () => {
       expect(afterRemove).toHaveLength(0);
 
       const removed = JSON.parse(
-        sessionStorage.getItem(historyService["sessionKey"])!
+        sessionStorage.getItem(historyService["sessionKey"])!,
       );
       expect(removed).toHaveLength(1);
       expect(removed[0].id).toBe(id);
@@ -94,7 +95,7 @@ describe("SearchHistoryService", () => {
       expect(restored[0].id).toBe(id);
 
       expect(
-        JSON.parse(sessionStorage.getItem(historyService["sessionKey"])!)
+        JSON.parse(sessionStorage.getItem(historyService["sessionKey"])!),
       ).toHaveLength(0);
     });
   });

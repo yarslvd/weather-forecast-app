@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { weatherForecastService } from "@/services/WeatherForecastService";
+import { weatherForecastService } from "@/services/weatherForecastService";
 import { getCurrentLocation } from "@lib/utils";
 import { ErrorsTexts } from "@constants/errors";
 import { config } from "@/config";
@@ -36,7 +36,7 @@ export const useWeatherForecast = () => {
         setLoading(false);
       }
     },
-    []
+    [],
   );
 
   const fetchForecastByCoords = useCallback(
@@ -62,7 +62,7 @@ export const useWeatherForecast = () => {
         setLoading(false);
       }
     },
-    []
+    [],
   );
 
   const fetchCurrentLocationForecast = async () => {
@@ -120,7 +120,6 @@ export const useWeatherForecast = () => {
 
   useEffect(() => {
     fetchCurrentLocationForecast();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

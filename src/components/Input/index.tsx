@@ -16,5 +16,5 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       />
       {error && <span className="text-red-400 text-sm mt-1">{error}</span>}
     </div>
-  )
+  ),
 );

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { weatherForecastService } from "@/services/WeatherForecastService";
+import { weatherForecastService } from "@/services/weatherForecastService";
 import { apiClient } from "@api/apiClient";
 import { formatWeatherData } from "@lib/utils";
 import { toast } from "sonner";
@@ -84,7 +84,7 @@ describe("WeatherForecastService", () => {
       mockGet.mockRejectedValue(error);
 
       await expect(weatherForecastService.searchCities(city)).rejects.toThrow(
-        error.message
+        error.message,
       );
       expect(toast.error).toHaveBeenCalledWith(error.message);
     });
@@ -104,7 +104,7 @@ describe("WeatherForecastService", () => {
       expect(formatWeatherData).toHaveBeenCalledWith(
         apiResponse,
         { lat: coords.lat, lon: coords.lon },
-        state
+        state,
       );
       expect(result).toEqual({
         temp: 20,
@@ -119,7 +119,7 @@ describe("WeatherForecastService", () => {
       mockGet.mockRejectedValue(error);
 
       await expect(
-        weatherForecastService.getWeatherByCoords(coords)
+        weatherForecastService.getWeatherByCoords(coords),
       ).rejects.toThrow(error.message);
       expect(toast.error).toHaveBeenCalledWith(error.message);
     });
@@ -128,11 +128,11 @@ describe("WeatherForecastService", () => {
   describe("getWeatherByCity", () => {
     it("fetches weather by city", async () => {
       vi.spyOn(weatherForecastService, "searchCities").mockResolvedValue(
-        geoData
+        geoData,
       );
 
       vi.spyOn(weatherForecastService, "getWeatherByCoords").mockResolvedValue(
-        weatherData
+        weatherData,
       );
 
       const result = await weatherForecastService.getWeatherByCity(city);
@@ -142,25 +142,25 @@ describe("WeatherForecastService", () => {
     it("throws error if city not found", async () => {
       vi.spyOn(weatherForecastService, "searchCities").mockResolvedValue([]);
       await expect(
-        weatherForecastService.getWeatherByCity(city)
+        weatherForecastService.getWeatherByCity(city),
       ).rejects.toThrow(ErrorsTexts.CITY_NOT_FOUND(city));
       expect(toast.error).toHaveBeenCalledWith(
-        ErrorsTexts.CITY_NOT_FOUND(city)
+        ErrorsTexts.CITY_NOT_FOUND(city),
       );
     });
 
     it("handles getWeatherByCoords error", async () => {
       vi.spyOn(weatherForecastService, "searchCities").mockResolvedValue(
-        geoData
+        geoData,
       );
 
       const apiError = new Error("Weather API failed");
       vi.spyOn(weatherForecastService, "getWeatherByCoords").mockRejectedValue(
-        apiError
+        apiError,
       );
 
       await expect(
-        weatherForecastService.getWeatherByCity(city)
+        weatherForecastService.getWeatherByCity(city),
       ).rejects.toThrow(apiError.message);
       expect(toast.error).toHaveBeenCalledWith(apiError.message);
     });

@@ -88,11 +88,11 @@ describe("SearchHistory", () => {
         removeItem={removeItem}
         undoRemove={undoRemove}
         clear={clear}
-      />
+      />,
     );
 
     expect(
-      screen.getByText("Start searching for cities to see them here")
+      screen.getByText("Start searching for cities to see them here"),
     ).toBeInTheDocument();
   });
 
@@ -106,11 +106,11 @@ describe("SearchHistory", () => {
         removeItem={removeItem}
         undoRemove={undoRemove}
         clear={clear}
-      />
+      />,
     );
 
     const entries = sampleHistory.map((item) =>
-      screen.getByTestId(`history-entry-${item.id}`)
+      screen.getByTestId(`history-entry-${item.id}`),
     );
     expect(entries).toHaveLength(2);
 
@@ -127,7 +127,7 @@ describe("SearchHistory", () => {
         removeItem={removeItem}
         undoRemove={undoRemove}
         clear={clear}
-      />
+      />,
     );
 
     fireEvent.click(screen.getAllByRole("button")[0]);
@@ -144,7 +144,7 @@ describe("SearchHistory", () => {
         removeItem={removeItem}
         undoRemove={undoRemove}
         clear={clear}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByTestId("clear-all"));
@@ -161,7 +161,7 @@ describe("SearchHistory", () => {
         removeItem={removeItem}
         undoRemove={undoRemove}
         clear={clear}
-      />
+      />,
     );
 
     const selectButtons = screen.getAllByText("Select");
@@ -171,7 +171,7 @@ describe("SearchHistory", () => {
     expect(selectItem).toHaveBeenCalledTimes(1);
     expect(selectItem).toHaveBeenCalledWith(
       sampleHistory[1].coords.lat,
-      sampleHistory[1].coords.lon
+      sampleHistory[1].coords.lon,
     );
   });
 
@@ -185,7 +185,7 @@ describe("SearchHistory", () => {
         removeItem={removeItem}
         undoRemove={undoRemove}
         clear={clear}
-      />
+      />,
     );
 
     const removeButtons = screen.getAllByText("Remove");

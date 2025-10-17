@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { historyService } from "@services/HistoryService";
+import { historyService } from "@services/historyService";
 import { ErrorsTexts } from "@constants/errors";
 
 import type { Coordinates, HistoryItem } from "@/types";
@@ -30,7 +30,7 @@ export const useSearchHistory = () => {
         toast.error(ErrorsTexts.HISTORY_ADD_FAILED);
       }
     },
-    []
+    [],
   );
 
   const removeHistoryItem = useCallback((id: string) => {

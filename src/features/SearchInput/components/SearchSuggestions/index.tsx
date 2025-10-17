@@ -33,7 +33,7 @@ const SuggestionEntry = ({
         handleSelect();
       }
     },
-    [handleSelect]
+    [handleSelect],
   );
 
   return (

@@ -53,7 +53,7 @@ describe("WeatherInfo", () => {
         loading={true}
         error={null}
         geoAllowed={true}
-      />
+      />,
     );
 
     // Should render at least some skeletons
@@ -67,7 +67,7 @@ describe("WeatherInfo", () => {
         loading={false}
         error={null}
         geoAllowed={false}
-      />
+      />,
     );
 
     expect(screen.getByText("Location Denied")).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe("WeatherInfo", () => {
         loading={false}
         error="Some error"
         geoAllowed={true}
-      />
+      />,
     );
 
     expect(screen.getByText("Error: Some error")).toBeInTheDocument();
@@ -95,7 +95,7 @@ describe("WeatherInfo", () => {
         loading={false}
         error={null}
         geoAllowed={true}
-      />
+      />,
     );
 
     expect(screen.getByText(/^Error:/)).toBeInTheDocument();
@@ -108,7 +108,7 @@ describe("WeatherInfo", () => {
         loading={false}
         error={null}
         geoAllowed={true}
-      />
+      />,
     );
 
     expect(screen.getByText("Kyiv, Ukraine")).toBeInTheDocument();

@@ -19,7 +19,7 @@ export function getWeatherIconUrl(iconCode: string): string {
 export const formatWeatherData = (
   data: OpenWeatherResponse,
   coords: Coordinates,
-  state?: string
+  state?: string,
 ): WeatherForecast => {
   const { name, sys, main, weather, wind } = data;
 
@@ -67,7 +67,7 @@ export const getCurrentLocation = async (): Promise<GeolocationPosition> => {
 export const isSameCoords = (
   a: Coordinates,
   b: Coordinates,
-  tolerance = 0.0001
+  tolerance = 0.0001,
 ): boolean => {
   return (
     Math.abs(a.lat - b.lat) < tolerance && Math.abs(a.lon - b.lon) < tolerance

@@ -41,7 +41,7 @@ class WeatherForecastService {
         "/data/2.5/weather",
         {
           params: { lat, lon, units: config.units, lang: config.lang },
-        }
+        },
       );
 
       return formatWeatherData(weatherRes.data, { lat, lon }, state);

@@ -29,7 +29,7 @@ export const WeatherInfo = ({
   const renderText = (
     text: React.ReactNode,
     skeletonWidth: string,
-    skeletonHeight = "h-4"
+    skeletonHeight = "h-4",
   ) =>
     isLoading ? (
       <Skeleton className={`${skeletonHeight} ${skeletonWidth}`} />
@@ -55,7 +55,7 @@ export const WeatherInfo = ({
               {weatherForecast?.city}, {weatherForecast?.country}{" "}
             </h2>,
             "w-48",
-            "h-10"
+            "h-10",
           )}
 
           {renderText(
@@ -63,7 +63,7 @@ export const WeatherInfo = ({
               {weatherForecast?.description}
             </p>,
             "w-32",
-            "h-5"
+            "h-5",
           )}
         </div>
       </header>
@@ -74,7 +74,7 @@ export const WeatherInfo = ({
           {renderText(
             <div className="text-6xl font-bold">{temp}&#176;</div>,
             "w-28",
-            "h-12"
+            "h-12",
           )}
 
           {renderText(
@@ -86,13 +86,12 @@ export const WeatherInfo = ({
               <span className="font-medium">&#x2193;</span> {min}&#176;C {" | "}
               <span className="font-medium">&#x2191;</span> {max}&#176;C
             </div>,
-            "w-36"
+            "w-36",
           )}
         </div>
 
-        {isLoading ? (
-          <div className="w-42 h-42" />
-        ) : weatherForecast ? (
+        {isLoading && <div className="w-42 h-42" />}
+        {!isLoading && weatherForecast && (
           <>
             <link
               rel="preload"
@@ -101,7 +100,6 @@ export const WeatherInfo = ({
               href={getWeatherIconUrl(weatherForecast.icon)}
             />
             <img
-              rel="preload"
               src={getWeatherIconUrl(weatherForecast.icon)}
               alt={weatherForecast.description}
               className="w-42 h-42"
@@ -110,7 +108,7 @@ export const WeatherInfo = ({
               fetchPriority="high"
             />
           </>
-        ) : null}
+        )}
       </div>
 
       {/* Weather details */}
