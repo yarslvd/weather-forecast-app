@@ -35,8 +35,8 @@ export const SearchHistory = ({
   };
 
   return (
-    <section className="bg-stone-800/40 backdrop-blur-md rounded-md max-h-full overflow-hidden flex flex-col">
-      <header className="flex items-center justify-between px-4 py-2">
+    <section className="bg-stone-800/40 backdrop-blur-md rounded-md flex flex-col overflow-hidden h-full">
+      <header className="flex items-center justify-between px-4 py-2 shrink-0">
         <h3 className="text-stone-200 font-semibold flex items-center gap-2">
           History
         </h3>
@@ -55,13 +55,13 @@ export const SearchHistory = ({
       </header>
 
       {history.length === 0 ? (
-        <div className="flex-1 flex items-center justify-center min-h-20">
-          <span className="text-sm text-stone-300 text-center px-2">
+        <div className="flex-1 flex items-center justify-center px-2">
+          <span className="text-sm text-stone-300 text-center">
             Start searching for cities to see them here
           </span>
         </div>
       ) : (
-        <ul className="max-h-76 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-stone-400/50 scrollbar-track-transparent">
+        <ul className="flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-stone-400/50 scrollbar-track-transparent">
           {history.map((item) => (
             <SearchHistoryEntry
               key={item.id}

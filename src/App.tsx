@@ -28,18 +28,20 @@ function App() {
 
   return (
     <main
-      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      className="min-h-[100dvh] bg-cover bg-center flex items-center justify-center relative"
       style={{
         backgroundImage: `url('${config.backgroundImage}')`,
       }}
     >
       <div
         className="
-          w-full max-w-4xl m-2 p-6 rounded-2xl bg-slate-600/20 backdrop-blur-md 
-          min-h-[408px] flex flex-col gap-4 md:grid md:grid-cols-[3fr_2fr]
+          flex flex-col md:grid md:grid-cols-[3fr_2fr] w-full 
+          max-w-4xl mx-auto md:mx-2 p-4 bg-slate-600/20 backdrop-blur-md
+          h-[100dvh] md:h-auto sm:min-h-[408px] overflow-hidden
+          md:rounded-2xl gap-2
         "
       >
-        <div className="flex flex-col gap-8 h-full justify-between sm:max-w-[500px]">
+        <div className="flex flex-col gap-4 md:max-w-[500px] overflow-hidden">
           <SearchInput
             addHistoryItem={addHistoryItem}
             geoAllowed={geoAllowed}
@@ -47,23 +49,28 @@ function App() {
             fetchForecastByCoords={fetchForecastByCoords}
             fetchCurrentLocationForecast={fetchCurrentLocationForecast}
           />
-          <WeatherInfo
-            weatherForecast={weather}
-            loading={loading}
-            error={error}
-            geoAllowed={geoAllowed}
-          />
+
+          <div className="flex-1 min-h-0 overflow-auto">
+            <WeatherInfo
+              weatherForecast={weather}
+              loading={loading}
+              error={error}
+              geoAllowed={geoAllowed}
+            />
+          </div>
         </div>
 
-        <SearchHistory
-          history={history}
-          currentForecast={weather}
-          canUndo={canUndo}
-          selectItem={fetchForecastByCoords}
-          removeItem={removeHistoryItem}
-          undoRemove={undoRemove}
-          clear={clearHistory}
-        />
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+          <SearchHistory
+            history={history}
+            currentForecast={weather}
+            canUndo={canUndo}
+            selectItem={fetchForecastByCoords}
+            removeItem={removeHistoryItem}
+            undoRemove={undoRemove}
+            clear={clearHistory}
+          />
+        </div>
       </div>
       <Toaster visibleToasts={1} position="top-center" richColors={true} />
     </main>

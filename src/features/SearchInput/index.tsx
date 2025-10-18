@@ -84,7 +84,7 @@ export const SearchInput = ({
   };
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative p-1">
       <div className="flex items-center gap-2">
         <div className="relative flex-1">
           <Input

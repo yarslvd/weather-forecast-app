@@ -46,7 +46,7 @@ export const WeatherInfo = ({
     return <ErrorScreen error={error} isApiKeyMissing={isApiKeyMissing} />;
 
   return (
-    <section className="flex flex-col overflow-hidden">
+    <section className="flex flex-col overflow-hidde h-full justify-between">
       {/* Location + description */}
       <header className="flex justify-between items-center">
         <div className="flex flex-col gap-1 flex-1 min-w-0">
@@ -72,7 +72,7 @@ export const WeatherInfo = ({
       <div className="flex items-center gap-2 text-stone-200">
         <div className="flex flex-col gap-1">
           {renderText(
-            <div className="text-6xl font-bold">{temp}&#176;</div>,
+            <div className="text-5xl sm:text-6xl font-bold">{temp}&#176;</div>,
             "w-28",
             "h-12",
           )}
@@ -90,7 +90,7 @@ export const WeatherInfo = ({
           )}
         </div>
 
-        {isLoading && <div className="w-42 h-42" />}
+        {isLoading && <div className="w-38 h-38 sm:w-42 sm:h-42" />}
         {!isLoading && weatherForecast && (
           <>
             <link
@@ -102,7 +102,7 @@ export const WeatherInfo = ({
             <img
               src={getWeatherIconUrl(weatherForecast.icon)}
               alt={weatherForecast.description}
-              className="w-42 h-42"
+              className="w-38 h-38 sm:w-42 sm:h-42"
               loading="eager"
               decoding="async"
               fetchPriority="high"

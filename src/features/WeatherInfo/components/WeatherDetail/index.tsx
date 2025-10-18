@@ -14,7 +14,7 @@ export const WeatherDetail = ({
   loading,
 }: WeatherDetailProps) => (
   <div
-    className="bg-stone-800/40 rounded-lg p-3 flex items-center gap-2 hover:bg-stone-700/40 transition-colors"
+    className="bg-stone-800/40 rounded-lg p-2 sm:p-3 flex items-center gap-2 hover:bg-stone-700/40 transition-colors"
     title={label}
     aria-label={label}
   >
